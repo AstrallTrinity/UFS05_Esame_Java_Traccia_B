@@ -58,6 +58,7 @@ public class Client {
 
     static ArrayList<Wine> wines = new ArrayList<>();
 
+
     static void buildProductList() {
         wines.add(new Wine(13,"Dom Perignon Vintage Moet & Chadon 2009",225.94, "white"));
         wines.add(new Wine(124,"Pinot Nero Elena Walch Elena Walch 2018",43.0, "red"));
@@ -79,6 +80,31 @@ public class Client {
             return product1.getName().compareTo(product2.getName());
         });
     }
+
+
+    public ArrayList red(ArrayList red) {
+        for (int i = 0; i < wines.size(); i++) {
+            if (wines.get(i).type == "red") {
+                red.add(wines.get(i));
+            }
+        }
+        return red;
+
+
+    }
+
+    public ArrayList white(ArrayList white) {
+        for (int i = 0; i < wines.size(); i++) {
+            if (wines.get(i).type == "white") {
+                white.add(wines.get(i));
+            }
+        }
+        return white;
+    }
+
+
+
+
 
 
 
@@ -111,7 +137,8 @@ public class Client {
                 risultato = gson.toJson(wines);
                 return frase + risultato;
 
-        } else {
+
+            } else {
             risultato = "Comandi: 'all' | 'red' | 'white' | 'sorted_by_price' | 'sorted_by_name' ";
             return risultato;
         }
